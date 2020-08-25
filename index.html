@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="mystyles.css">
+
+    <script type="text/javascript">  
+ 
+        function validateform(){  
+          var password = document.getElementById("pwd").value;
+          var confirmPassword = document.getElementById("confpwd").value;
+            if (password != confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            return true;  
+          }
+      
+        function disableSubmit() {
+          document.getElementById("submit").disabled = true;
+          }
+      
+        function activateButton(element) {
+          if(element.checked) {
+            document.getElementById("submit").disabled = false;
+         }
+         else  {
+          document.getElementById("submit").disabled = true;
+        }
+      }
+      
+      </script> 
+
+</head>
+<body onload="disableSubmit()">
+    <div class="regform">
+        <h1>
+ Registration Form</h1>
+</div>
+<div class="main">
+    <form action="script.js" method="post" onsubmit="return validateform()" >
+        
+            <h2 class="name">Name:<sup style="color:red;"><b>*</b></sup> </h2>
+            <input class="fullname" type="text" name="fullname" pattern="[a-zA-Z\s]{2,}" title="Name should have charcters only and it's length should be greater than or equal to 2" required><br>
+
+        <h2 class="name">Email:<sup style="color:red;"><b>*</b></h2>
+        <input class="email" type="email" name="email" placeholder="xyz@gmail.com" title="Email should be in the given format and should have 3 or more letters before @ and atleast 2 letters after . symbol" pattern="[a-z0-9._%+-]{3,}@[a-z0-9.-]+\.[a-z]{2,}$" required>
+
+        <h2 class="name">Password:<sup style="color:red;"><b>*</b> </h2>
+        <input class="pwd" type="password" id="pwd" name="pwd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter" required>
+         
+        <h2 class="name">Confirm Password:<sup style="color:red;"><b>*</b> </h2>
+        <input class="cnfpwd" type="password" id="confpwd" name="cnfpwd" required>
+
+        <h2 id="gender">Gender:
+            <label class="radio" style="font-size:18px;">
+                <input class="radio-one" type="radio"  name="rdiobtn">
+                Male
+            </label>
+    
+            <label class="radio" style="font-size:18px;">
+                <input class="radio-two" type="radio" name="rdiobtn">
+                <span class="checkmark"></span>
+                Female
+            </label>
+            
+            <label class="radio" style="font-size:18px;">
+              <input class="radio-three" type="radio" name="rdiobtn">
+              <span class="checkmark"></span>
+              Others
+            </label>
+            </h2>
+
+
+             <h2 class="name">Date Of Birth:<sup style="color:red;"><b>*</b> </h2>
+                <input type="date" id="birthday" class ="birthday"name="birthday">
+
+           
+           <h2 class="name">Phone number:<sup style="color:red;"><b>*</b></sup></h2>
+            <input class="phone" type="tel" name="phone" pattern="[0-9]{10}" title="Phone Number should contain only digits and should be of length 10" required>
+
+       
+
+    
+    
+            <h2 class="name">
+Education Category: </h2>
+<select class="option" name="education">
+                <option value="" disabled selected>--Choose option--</option>
+                <option label="Btech">Btech</option>
+                <option label="Mtech">Mtech</option>
+                <option label="MCA">MCA</option>
+                <option label="MBA">MBA</option>
+            </select>
+            <br>
+            
+    <h4 style="font-family: sans-serif; color: white"><input type="checkbox" name="terms" id="terms" class="tnc" onchange="activateButton(this)" > I Agree to the<a href="https://www.symphonytalent.com/en/terms-and-conditions/"><u style="color:blue">Terms & Coditions</u></a></h4>
+  <br><br>
+            <button type="submit" id="submit">Register</button>
+    
+    
+        </form>
+</div>
+</body>
+</html>

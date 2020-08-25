@@ -1,2 +1,0 @@
-# RegistrationForm
-JS,Java
