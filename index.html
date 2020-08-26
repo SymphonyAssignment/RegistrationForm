@@ -7,7 +7,14 @@
     <link rel="stylesheet" type="text/css" href="mystyles.css">
 
     <script type="text/javascript">  
- 
+ var f1=0;
+var f2=0;
+var f3=0;
+var f4=0;
+var f5=0;
+var f6=0;
+
+
         function validateform(){  
           var password = document.getElementById("pwd").value;
           var confirmPassword = document.getElementById("confpwd").value;
@@ -23,7 +30,7 @@
           }
       
         function activateButton(element) {
-          if(element.checked) {
+          if((element.checked) && f1 && f2 && f3 && f4 && f5 && f6) {
             document.getElementById("submit").disabled = false;
          }
          else  {
@@ -33,47 +40,80 @@
 
       function function1() {
         var str = document.getElementsByClassName("fullname")[0];
+        var str1= document.getElementById("fullname").name;
       var patt = /^[a-zA-Z ]{2,30}$/;
       var res = patt.test(str.value);
       if(res==false)
+      {
+      showerror(str1);
       document.getElementById("demo1").innerHTML = "Name should have characters only and length should be between 2 and 30";
-      else
-      document.getElementById("demo1").innerHTML = "Format is correct";
+      }else
+      showsuccess(str1);
+      f1=res;
+     
+    }
+    
+    function showsuccess(x) {
+      console.log(x);
+      document.getElementById(x).style.color="#2b7515";
+      document.getElementById(x).style.background="#ecffd6";
+      document.getElementById(x).style.border="1px solid #617c42";
+    }
+    function showerror(x) {
+      console.log(x);
+      document.getElementById(x).style.color="#ba3939";
+      document.getElementById(x).style.background="#ffe0e0";
+      document.getElementById(x).style.border="1px solid #a33a3a";
     }
 
 
     function function2() {
         var str = document.getElementsByClassName("email")[0];
+        var str1= document.getElementById("email").name;
       var patt = /^[a-z0-9._%+-]{3,}@[a-z0-9.-]+\.[a-z]{2,}$/;
       var res = patt.test(str.value);
       if(res==false)
+      {
       document.getElementById("demo2").innerHTML = "Email should be in the given format and should have 3 or more letters before @ and atleast 2 letters after . symbol";
-      else
-      document.getElementById("demo2").innerHTML = "Format is correct";
+      showerror(str1);
+      }else
+      showsuccess(str1);
+            f2=res;
+      
     }
 
 
     function function3() {
         var str = document.getElementById("pwd").value;
+        var str1= document.getElementById("pwd").name;
       var patt = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
       var res = patt.test(str);
       if(res==false)
+      {
       document.getElementById("demo3").innerHTML = "Password must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter";
-      else
-      document.getElementById("demo3").innerHTML = "Format is correct";
+      showerror(str1);
+      }else
+      showsuccess(str1);
+            f3=res;
+  
     }
 
     function function4() {
       var password = document.getElementById("pwd").value;
+      var str1= document.getElementById("confwd").name;
           var confirmPassword = document.getElementById("confpwd").value;
           var res=false;
             if (password != confirmPassword) 
+            {
               document.getElementById("demo4").innerHTML ="Passwords do not match.";
+              showerror(str1);
+            }
       else
       {
         res=true;
-      document.getElementById("demo4").innerHTML = "Format is correct";
-      }
+        showsuccess(str1);      }
+      f4=res;
+  
     } 
     
 
@@ -103,20 +143,25 @@ if (age < 18  || age > 60)
   {
         res=true;
       document.getElementById("demo5").innerHTML = "Format is correct";
-  }    
+  }  
+  f5=res;
+  
 }
 
 function function6() {
         var str = document.getElementsByClassName("phone")[0];
+        var str1= document.getElementById("phone").name;
       var patt = /^[0-9]{10}$/;
       var res = patt.test(str.value);
-      if(res==false)
+      if(res==false){
       document.getElementById("demo6").innerHTML = "Phone Number should contain only digits and should be of length 10";
-      else
-      document.getElementById("demo6").innerHTML = "Format is correct";
+       showerror(str1);
+       }
+        else
+      showsuccess(str1);      
+      f6=res;
+
     }
-
-
 
       </script> 
 
@@ -130,11 +175,11 @@ function function6() {
     <form action="script.js" method="post" onsubmit="return validateform()" >
         
             <h2 class="name">Name:<sup style="color:red;"><b>*</b></sup> </h2>
-            <input class="fullname" type="text" name="fullname" pattern="[a-zA-Z\s]{2,30}" title="Name should have characters only and length should be between 2 and 30" onblur="function1()" required><br>
+            <input class="fullname" type="text" name="fullname" id="fullname" pattern="[a-zA-Z\s]{2,30}" title="Name should have characters only and length should be between 2 and 30" onblur="function1()" required><br>
             <p id="demo1"></p>
 
         <h2 class="name">Email:<sup style="color:red;"><b>*</b></h2>
-        <input class="email" type="email" name="email" placeholder="xyz@gmail.com" title="Email should be in the given format and should have 3 or more letters before @ and atleast 2 letters after . symbol" pattern="[a-z0-9._%+-]{3,}@[a-z0-9.-]+\.[a-z]{2,}$" onblur="function2()" required>
+        <input class="email" type="email" name="email" placeholder="xyz@gmail.com" id="email" title="Email should be in the given format and should have 3 or more letters before @ and atleast 2 letters after . symbol" pattern="[a-z0-9._%+-]{3,}@[a-z0-9.-]+\.[a-z]{2,}$" onblur="function2()" required>
         <p id="demo2"></p>
 
         <h2 class="name">Password:<sup style="color:red;"><b>*</b> </h2>
@@ -170,7 +215,7 @@ function function6() {
                 <p id="demo5"></p>
            
            <h2 class="name">Phone number:<sup style="color:red;"><b>*</b></sup></h2>
-            <input class="phone" type="tel" name="phone" pattern="[0-9]{10}" title="Phone Number should contain only digits and should be of length 10" onblur=function6() required>
+            <input class="phone" type="tel" id="phone" name="phone" pattern="[0-9]{10}" title="Phone Number should contain only digits and should be of length 10" onblur=function6() required>
             <p id="demo6"></p>
        
 
