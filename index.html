@@ -30,7 +30,94 @@
           document.getElementById("submit").disabled = true;
         }
       }
-      
+
+      function function1() {
+        var str = document.getElementsByClassName("fullname")[0];
+      var patt = /^[a-zA-Z ]{2,30}$/;
+      var res = patt.test(str.value);
+      if(res==false)
+      document.getElementById("demo1").innerHTML = "Name should have characters only and length should be between 2 and 30";
+      else
+      document.getElementById("demo1").innerHTML = "Format is correct";
+    }
+
+
+    function function2() {
+        var str = document.getElementsByClassName("email")[0];
+      var patt = /^[a-z0-9._%+-]{3,}@[a-z0-9.-]+\.[a-z]{2,}$/;
+      var res = patt.test(str.value);
+      if(res==false)
+      document.getElementById("demo2").innerHTML = "Email should be in the given format and should have 3 or more letters before @ and atleast 2 letters after . symbol";
+      else
+      document.getElementById("demo2").innerHTML = "Format is correct";
+    }
+
+
+    function function3() {
+        var str = document.getElementById("pwd").value;
+      var patt = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+      var res = patt.test(str);
+      if(res==false)
+      document.getElementById("demo3").innerHTML = "Password must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter";
+      else
+      document.getElementById("demo3").innerHTML = "Format is correct";
+    }
+
+    function function4() {
+      var password = document.getElementById("pwd").value;
+          var confirmPassword = document.getElementById("confpwd").value;
+          var res=false;
+            if (password != confirmPassword) 
+              document.getElementById("demo4").innerHTML ="Passwords do not match.";
+      else
+      {
+        res=true;
+      document.getElementById("demo4").innerHTML = "Format is correct";
+      }
+    } 
+    
+
+    function function5() {
+
+
+var today = new Date();
+var nowyear = today.getFullYear();
+var nowmonth = today.getMonth();
+var nowday = today.getDate();
+var b = document.getElementById("birthday").value;
+
+var birth = new Date(b);
+
+var birthyear = birth.getFullYear();
+var birthmonth = birth.getMonth();
+var birthday = birth.getDate();
+
+var age = nowyear - birthyear;
+var age_month = nowmonth - birthmonth;
+var age_day = nowday - birthday;
+
+var res=false;
+if ((age < 18 && age_month == 0 && age_day == 0) || (age > 60 && age_month == 0 && age_day == 0)) 
+    adocument.getElementById("demo5").innerHTML = "Age should be more than 18 years and less than 60 years";
+  else
+  {
+        res=true;
+      document.getElementById("demo5").innerHTML = "Format is correct";
+  }    
+}
+
+function function6() {
+        var str = document.getElementsByClassName("phone")[0];
+      var patt = /^[0-9]{10}$/;
+      var res = patt.test(str.value);
+      if(res==false)
+      document.getElementById("demo6").innerHTML = "Name should have characters only and length should be between 2 and 30";
+      else
+      document.getElementById("demo6").innerHTML = "Format is correct";
+    }
+
+
+
       </script> 
 
 </head>
@@ -43,16 +130,20 @@
     <form action="script.js" method="post" onsubmit="return validateform()" >
         
             <h2 class="name">Name:<sup style="color:red;"><b>*</b></sup> </h2>
-            <input class="fullname" type="text" name="fullname" pattern="[a-zA-Z\s]{2,}" title="Name should have charcters only and it's length should be greater than or equal to 2" required><br>
+            <input class="fullname" type="text" name="fullname" pattern="[a-zA-Z\s]{2,30}" title="Name should have characters only and length should be between 2 and 30" onblur="function1()" required><br>
+            <p id="demo1"></p>
 
         <h2 class="name">Email:<sup style="color:red;"><b>*</b></h2>
-        <input class="email" type="email" name="email" placeholder="xyz@gmail.com" title="Email should be in the given format and should have 3 or more letters before @ and atleast 2 letters after . symbol" pattern="[a-z0-9._%+-]{3,}@[a-z0-9.-]+\.[a-z]{2,}$" required>
+        <input class="email" type="email" name="email" placeholder="xyz@gmail.com" title="Email should be in the given format and should have 3 or more letters before @ and atleast 2 letters after . symbol" pattern="[a-z0-9._%+-]{3,}@[a-z0-9.-]+\.[a-z]{2,}$" onblur="function2()" required>
+        <p id="demo2"></p>
 
         <h2 class="name">Password:<sup style="color:red;"><b>*</b> </h2>
-        <input class="pwd" type="password" id="pwd" name="pwd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter" required>
-         
+        <input class="pwd" type="password" id="pwd" name="pwd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter" onblur="function3()" required>
+        <p id="demo3"></p> 
+
         <h2 class="name">Confirm Password:<sup style="color:red;"><b>*</b> </h2>
-        <input class="cnfpwd" type="password" id="confpwd" name="cnfpwd" required>
+        <input class="cnfpwd" type="password" id="confpwd" name="cnfpwd" onblur="function4()" required>
+        <p id="demo4"></p>
 
         <h2 id="gender">Gender:
             <label class="radio" style="font-size:18px;">
@@ -75,12 +166,12 @@
 
 
              <h2 class="name">Date Of Birth:<sup style="color:red;"><b>*</b> </h2>
-                <input type="date" id="birthday" class ="birthday"name="birthday">
-
+                <input type="date" id="birthday" class ="birthday"name="birthday" onblur=function5() required>
+                <p id="demo5"></p>
            
            <h2 class="name">Phone number:<sup style="color:red;"><b>*</b></sup></h2>
-            <input class="phone" type="tel" name="phone" pattern="[0-9]{10}" title="Phone Number should contain only digits and should be of length 10" required>
-
+            <input class="phone" type="tel" name="phone" pattern="[0-9]{10}" title="Phone Number should contain only digits and should be of length 10" onblur=function6() required>
+            <p id="demo6"></p>
        
 
     
