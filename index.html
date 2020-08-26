@@ -46,6 +46,7 @@ var f6=0;
       if(res==false)
       {
       showerror(str1);
+      
       document.getElementById("demo1").innerHTML = "Name should have characters only and length should be between 2 and 30";
       }else
       showsuccess(str1);
@@ -180,7 +181,7 @@ function function6()
     <form action="thankyou.html" method="post" onsubmit="return validateform()" >
         
             <h2 class="name">Name:<sup style="color:red;"><b>*</b></sup> </h2>
-            <input class="fullname" type="text" name="fullname" id="fullname" pattern="[a-zA-Z\s]{2,30}" title="Name should have characters only and length should be between 2 and 30" onblur="function1()" required><br>
+            <input class="fullname" type="text" name="fullname" id="fullname" pattern="[a-zA-Z\s]{2,30}" title="Name should have characters only and length should be between 2 and 30" onblur="function1()" required>
             <p id="demo1"></p>
 
         <h2 class="name">Email:<sup style="color:red;"><b>*</b></h2>
@@ -239,7 +240,7 @@ Education Category: </h2>
             
     <h4 style="font-family: sans-serif; color: white"><input type="checkbox" name="terms" id="terms" class="tnc" onchange="activateButton(this)" > I Agree to the<a href="https://www.symphonytalent.com/en/terms-and-conditions/"><u style="color:blue">Terms & Coditions</u></a></h4>
   <br><br>
-            <button type="submit" id="submit">Register</button>
+            <button type="submit" id="submit" >Register</button>
     
     
         </form>

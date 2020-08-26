@@ -10,7 +10,21 @@
     background-size:cover;
     font-family:sans-serif;
      }
- 
+    
+    p{
+      margin-left:200px;
+      color:#cec846;
+      padding-bottom: 15px;
+      margin-bottom: 10px;
+      font-family:sans-serif;
+      font-size:16px;
+      
+
+    }
+    .danger{
+      border-left-color: #d9534f; 
+      background-color: rgba(217, 83, 79, 0.1); 
+    }
     .regform{
      width:700px;
      background-color:rgb(0,0,0,0.6);
@@ -24,9 +38,9 @@
    .main{
        background-color:rgb(0,0,0,0.5);
     width:700px;
- 
+      padding:auto;
     margin:auto;
-  margin-left: 600px;}
+   margin-left: 600px;}
    
    form{
        padding:10px;
