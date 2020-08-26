@@ -92,7 +92,8 @@ var f6=0;
       {
       document.getElementById("demo3").innerHTML = "Password must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter";
       showerror(str1);
-      }else
+      }
+      else
       showsuccess(str1);
             f3=res;
   
@@ -100,8 +101,10 @@ var f6=0;
 
     function function4() {
       var password = document.getElementById("pwd").value;
-      var str1= document.getElementById("confwd").name;
-          var confirmPassword = document.getElementById("confpwd").value;
+      var confirmPassword = document.getElementById("confpwd").value;
+      var str1= document.getElementById("confpwd").name;
+      console.log(password);
+      console.log(confirmPassword);
           var res=false;
             if (password != confirmPassword) 
             {
@@ -111,7 +114,8 @@ var f6=0;
       else
       {
         res=true;
-        showsuccess(str1);      }
+        showsuccess(str1);      
+      }
       f4=res;
   
     } 
@@ -148,7 +152,8 @@ if (age < 18  || age > 60)
   
 }
 
-function function6() {
+function function6() 
+{
         var str = document.getElementsByClassName("phone")[0];
         var str1= document.getElementById("phone").name;
       var patt = /^[0-9]{10}$/;
@@ -161,7 +166,7 @@ function function6() {
       showsuccess(str1);      
       f6=res;
 
-    }
+}
 
       </script> 
 
@@ -187,7 +192,7 @@ function function6() {
         <p id="demo3"></p> 
 
         <h2 class="name">Confirm Password:<sup style="color:red;"><b>*</b> </h2>
-        <input class="cnfpwd" type="password" id="confpwd" name="cnfpwd" onblur="function4()" required>
+        <input class="cnfpwd" type="password" id="confpwd" name="confpwd" onblur="function4()" required>
         <p id="demo4"></p>
 
         <h2 id="gender">Gender:

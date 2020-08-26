@@ -1,0 +1,1 @@
+document.write("You have successfully registered")
