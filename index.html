@@ -30,13 +30,14 @@ var f6=0;
           }
       
         function activateButton(element) {
-          if((element.checked) && f1 && f2 && f3 && f4 && f5 && f6) {
+          if(f1 && f2 && f3 && f4 && f5 && f6)
+          {
+            if(element.checked)
             document.getElementById("submit").disabled = false;
-         }
-         else  {
+          else  
           document.getElementById("submit").disabled = true;
+          }
         }
-      }
 
       function function1() {
         var str = document.getElementsByClassName("fullname")[0];
@@ -49,7 +50,10 @@ var f6=0;
       
       document.getElementById("demo1").innerHTML = "Name should have characters only and length should be between 2 and 30";
       }else
+      {
       showsuccess(str1);
+      document.getElementById("demo1").innerHTML = "";
+      }
       f1=res;
      
     }
@@ -78,8 +82,9 @@ var f6=0;
       document.getElementById("demo2").innerHTML = "Email should be in the given format and should have 3 or more letters before @ and atleast 2 letters after . symbol";
       showerror(str1);
       }else
-      showsuccess(str1);
-            f2=res;
+      {
+      showsuccess(str1);document.getElementById("demo2").innerHTML = "";
+           }     f2=res;
       
     }
 
@@ -95,8 +100,9 @@ var f6=0;
       showerror(str1);
       }
       else
-      showsuccess(str1);
-            f3=res;
+      {
+      showsuccess(str1);document.getElementById("demo3").innerHTML = "";
+           }     f3=res;
   
     }
 
@@ -115,6 +121,7 @@ var f6=0;
       else
       {
         res=true;
+        document.getElementById("demo4").innerHTML = "";
         showsuccess(str1);      
       }
       f4=res;
@@ -147,7 +154,7 @@ if (age < 18  || age > 60)
   else
   {
         res=true;
-      document.getElementById("demo5").innerHTML = "Format is correct";
+      document.getElementById("demo5").innerHTML = "";
   }  
   f5=res;
   
@@ -164,8 +171,9 @@ function function6()
        showerror(str1);
        }
         else
-      showsuccess(str1);      
-      f6=res;
+        {
+      showsuccess(str1);document.getElementById("demo6").innerHTML = "";      
+        }f6=res;
 
 }
 
