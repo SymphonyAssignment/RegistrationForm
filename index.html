@@ -84,6 +84,7 @@ var today = new Date();
 var nowyear = today.getFullYear();
 var nowmonth = today.getMonth();
 var nowday = today.getDate();
+
 var b = document.getElementById("birthday").value;
 
 var birth = new Date(b);
@@ -93,12 +94,11 @@ var birthmonth = birth.getMonth();
 var birthday = birth.getDate();
 
 var age = nowyear - birthyear;
-var age_month = nowmonth - birthmonth;
-var age_day = nowday - birthday;
+
 
 var res=false;
-if ((age < 18 && age_month == 0 && age_day == 0) || (age > 60 && age_month == 0 && age_day == 0)) 
-    adocument.getElementById("demo5").innerHTML = "Age should be more than 18 years and less than 60 years";
+if (age < 18  || age > 60) 
+    document.getElementById("demo5").innerHTML = "Age should be more than 18 years and less than 60 years";
   else
   {
         res=true;
@@ -111,7 +111,7 @@ function function6() {
       var patt = /^[0-9]{10}$/;
       var res = patt.test(str.value);
       if(res==false)
-      document.getElementById("demo6").innerHTML = "Name should have characters only and length should be between 2 and 30";
+      document.getElementById("demo6").innerHTML = "Phone Number should contain only digits and should be of length 10";
       else
       document.getElementById("demo6").innerHTML = "Format is correct";
     }
@@ -166,7 +166,7 @@ function function6() {
 
 
              <h2 class="name">Date Of Birth:<sup style="color:red;"><b>*</b> </h2>
-                <input type="date" id="birthday" class ="birthday"name="birthday" onblur=function5() required>
+                <input type="date" id="birthday" class ="birthday"name="birthday" max='2020-08-27' onblur=function5() required>
                 <p id="demo5"></p>
            
            <h2 class="name">Phone number:<sup style="color:red;"><b>*</b></sup></h2>
