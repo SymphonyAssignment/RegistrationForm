@@ -11,15 +11,17 @@
     font-family:sans-serif;
      }
     
-    p{
-      margin-left:200px;
-      color:#cec846;
-      padding-bottom: 15px;
-      margin-bottom: 10px;
-      font-family:sans-serif;
-      font-size:16px;
-      
-
+     .error{
+      margin-left: -22px;
+      position: relative;
+      left: 200px;
+      top: -37px;
+      line-height: 15px;
+      width: 450px;
+      border-radius: 6px;
+      padding: 5px 22px;
+      font-size: 16px;
+      color: #cec846;
     }
     .danger{
       border-left-color: #d9534f; 
