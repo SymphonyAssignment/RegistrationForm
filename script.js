@@ -13,7 +13,7 @@ var f6=0;
                 alert("Passwords do not match.");
                 return false;
             }
-            document.getElementById("form").reset();
+            
             return true;  
           }
       
@@ -200,16 +200,16 @@ const adduser=(ev)=>{
       education:document.getElementById('education').value
     }
     users.push(user);
-
-    //for displlaying purposes only
     console.warn('added',{users});
+    
+    window.location.href = 'thankyou.html'
+    document.getElementById("form").reset();
+    //for displlaying purposes only
+    
+    
     /*let pre=document.querySelector('msg pre');
     pre.textContent='\n'+JSON.stringify(users,'\t',2);*/
 }
-
-
-
-
 document.addEventListener('DOMContentLoaded',() =>
 {
   document.getElementById('submit').addEventListener('click',adduser);
