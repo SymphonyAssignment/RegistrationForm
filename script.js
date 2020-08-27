@@ -182,3 +182,36 @@ function function6()
         }f6=res;
 
 }
+
+
+
+let users=[];
+
+const adduser=(ev)=>{
+    ev.preventDefault();  //to stop form from submitting
+    let user={
+      name:document.getElementById('fullname').value,
+      email:document.getElementById('email').value,
+      password:document.getElementById('pwd').value,
+      confirmpassword:document.getElementById('confpwd').value,
+      gender:document.getElementById('sex').value,
+      dob:document.getElementById('birthday').value,
+      phoneno:document.getElementById('phone').value,
+      education:document.getElementById('education').value
+    }
+    users.push(user);
+
+    //for displlaying purposes only
+    console.warn('added',{users});
+    /*let pre=document.querySelector('msg pre');
+    pre.textContent='\n'+JSON.stringify(users,'\t',2);*/
+}
+
+
+
+
+document.addEventListener('DOMContentLoaded',() =>
+{
+  document.getElementById('submit').addEventListener('click',adduser);
+});
+

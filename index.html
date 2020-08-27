@@ -35,18 +35,18 @@
 
         <h2 id="gender">Gender:
             <label class="radio" style="font-size:18px;">
-                <input class="radio-one" type="radio"  name="rdiobtn">
+                <input class="radio-one" value="male" type="radio"  name="rdiobtn" id="sex">
                 Male
             </label>
     
             <label class="radio" style="font-size:18px;">
-                <input class="radio-two" type="radio" name="rdiobtn">
+                <input class="radio-two" value="female" type="radio" name="rdiobtn" id="sex">
                 <span class="checkmark"></span>
                 Female
             </label>
             
             <label class="radio" style="font-size:18px;">
-              <input class="radio-three" type="radio" name="rdiobtn">
+              <input class="radio-three" value="others" type="radio" name="rdiobtn" id="sex">
               <span class="checkmark"></span>
               Others
             </label>
@@ -54,7 +54,7 @@
 
 
              <h2 class="name">Date Of Birth:<sup style="color:red;"><b>*</b> </h2>
-                <input type="date" id="birthday" class ="birthday"name="birthday" max='2020-08-27' onblur=function5() required>
+                <input type="date" id="birthday" class ="birthday"name="birthday" max='2020-08-28' onblur=function5() required>
                 <p class="error" id="demo5"></p>
            
            <h2 class="name">Phone number:<sup style="color:red;"><b>*</b></sup></h2>
@@ -66,7 +66,7 @@
     
             <h2 class="name">
 Education Category: </h2>
-<select class="option" name="education">
+<select class="option" name="education" id="education">
                 <option value="" disabled selected>--Choose option--</option>
                 <option label="Btech">Btech</option>
                 <option label="Mtech">Mtech</option>
