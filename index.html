@@ -20,6 +20,7 @@
             <h2 class="name">Name:<sup style="color:red;"><b>*</b></sup> </h2>
             <input class="fullname" type="text" name="fullname" id="fullname" pattern="[a-zA-Z\s]{2,30}" title="Name should have characters only and length should be between 2 and 30" onblur="function1()" required>
             <p class="error" id="demo1"></p>
+    
 
         <h2 class="name">Email:<sup style="color:red;"><b>*</b></h2>
         <input class="email" type="email" name="email" placeholder="xyz@gmail.com" id="email" title="Email should be in the given format and should have 3 or more letters before @ and atleast 2 letters after . symbol" pattern="[a-z0-9._%+-]{3,}@[a-z0-9.-]+\.[a-z]{2,}$" onblur="function2()" required>
@@ -34,7 +35,20 @@
         <p class="error" id="demo4"></p>
 
         <h2 id="gender">Gender:
-            <label class="radio" style="font-size:18px;">
+            <label class="container" style=" margin-left: 100px;">Male
+                <input type="radio" value="male" type="radio"  name="radio" id="sex">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container"style=" margin-left: 50px;">Female
+                <input type="radio" name="radio" value="female" type="radio" name="rdiobtn" id="sex">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container" style=" margin-left: 50px;">Others
+                <input type="radio" name="radio"value="others" type="radio" name="rdiobtn" id="sex">
+                <span class="checkmark"></span>
+              </label>
+                  
+            <!-- <label class="radio" style="font-size:18px;">
                 <input class="radio-one" value="male" type="radio"  name="rdiobtn" id="sex">
                 Male
             </label>
@@ -49,8 +63,9 @@
               <input class="radio-three" value="others" type="radio" name="rdiobtn" id="sex">
               <span class="checkmark"></span>
               Others
-            </label>
+            </label> -->
             </h2>
+            <br>
 
 
              <h2 class="name">Date Of Birth:<sup style="color:red;"><b>*</b> </h2>
@@ -75,8 +90,13 @@ Education Category: </h2>
             </select>
             <br>
             
-    <h4 style="font-family: sans-serif; color: white"><input type="checkbox" name="terms" id="terms" class="tnc" onchange="activateButton(this)" > I Agree to the<a href="https://www.symphonytalent.com/en/terms-and-conditions/"><u style="color:blue">Terms & Coditions</u></a></h4>
-  <br><br>
+            <label class="switch">
+                <input type="checkbox" name="terms" id="terms" class="tnc" onchange="activateButton(this)">
+                <span class="slider"></span>
+              </label>
+              <h4 style="margin-left: 65px;margin-top: -20px;color: white;font-weight: normal;">
+                I Agree to the&nbsp;<a href="https://www.symphonytalent.com/en/terms-and-conditions/" style="color:black;font-weight: normal;">
+                    <u >Terms &amp; Coditions.</u></a></h4>  <br><br>
             <button type="submit" id="submit" >Register</button>
     
     
