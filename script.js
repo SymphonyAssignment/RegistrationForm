@@ -4,49 +4,60 @@ var f3=0;
 var f4=0;
 var f5=0;
 var f6=0;
+var f7=0;
 
 
-        function validateform(){  
-          var password = document.getElementById("pwd").value;
-          var confirmPassword = document.getElementById("confpwd").value;
-            if (password != confirmPassword) {
-                alert("Passwords do not match.");
-                return false;
-            }
-            
-            return true;  
+      function validateform(){  
+        var password = document.getElementById("pwd").value;
+        var confirmPassword = document.getElementById("confpwd").value;
+          if (password != confirmPassword) {
+              alert("Passwords do not match.");
+              return false;
           }
-      
-        function disableSubmit() {
-          document.getElementById("submit").disabled = true;
-          }
-      
-        function activateButton(element) {
-
-            if(element.checked&&f1 && f2 && f3 && f4 && f5 && f6)
-            document.getElementById("submit").disabled = false;
-          else  
-          document.getElementById("submit").disabled = true;
-          }
-        
-
-      function function1() {
-        var str = document.getElementsByClassName("fullname")[0];
-        var str1= document.getElementById("fullname").name;
-      var patt = /^[a-zA-Z ]{2,30}$/;
-      var res = patt.test(str.value);
-      if(res==false)
-      {
-      showerror(str1);
-      document.getElementById("demo1").innerHTML = "Name should have characters only and length should be between 2 and 30";
-      }else
-      {
-      showsuccess(str1);
-      document.getElementById("demo1").innerHTML = "";
+          
+          return true;  
+        }
+    
+      function disableSubmit() {
+        document.getElementById("submit").disabled = true;
+        }
+    
+      function activateButton(element) {
+        if(element.checked)
+        f7=1;
+        else 
+        f7=0;
+        checkFields();
       }
-      f1=res;
-     
+
+          
+        
+      function checkFields(){
+        
+        if(f7 && f1 && f2 && f3 && f4 && f5 && f6)
+        document.getElementById("submit").disabled = false;
+      else  
+      document.getElementById("submit").disabled = true;
+      }
+
+    function function1() {
+      var str = document.getElementsByClassName("fullname")[0];
+      var str1= document.getElementById("fullname").name;
+    var patt = /^[a-zA-Z ]{2,30}$/;
+    var res = patt.test(str.value);
+    if(res==false)
+    {
+    showerror(str1);
+    document.getElementById("demo1").innerHTML = "Name should have characters only and length should be between 2 and 30";
+    }else
+    {
+    showsuccess(str1);
+    document.getElementById("demo1").innerHTML = "";
     }
+    f1=res;
+    checkFields();
+    
+  }
     
     function showsuccess(x) {
       console.log(x);
@@ -75,6 +86,7 @@ var f6=0;
       {
       showsuccess(str1);document.getElementById("demo2").innerHTML = "";
            }     f2=res;
+           checkFields();
       
     }
 
@@ -93,6 +105,7 @@ var f6=0;
       {
       showsuccess(str1);document.getElementById("demo3").innerHTML = "";
            }     f3=res;
+           checkFields();
   
     }
 
@@ -115,6 +128,7 @@ var f6=0;
         showsuccess(str1);      
       }
       f4=res;
+      checkFields();
   
     } 
     
@@ -149,6 +163,7 @@ if (age < 18  || age > 60)
       document.getElementById("demo5").innerHTML = "";
   }  
   f5=res;
+  checkFields();
   
 }
 
@@ -167,6 +182,7 @@ function function6()
         {
       showsuccess(str1);document.getElementById("demo6").innerHTML = "";      
         }f6=res;
+        checkFields();
 
 }
 
