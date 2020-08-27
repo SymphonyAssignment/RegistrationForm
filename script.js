@@ -201,7 +201,9 @@ const adduser=(ev)=>{
     }
     users.push(user);
     console.warn('added',{users});
-    
+
+    localStorage.setItem("fullname",document.getElementById('fullname').value);
+
     window.location.href = 'thankyou.html'
     document.getElementById("form").reset();
     //for displlaying purposes only

@@ -35,6 +35,10 @@ p {
 }
     </style>
     <body>
-        <h1>Thank You For Registering with us.</h1>
+        <h1>Thank You For Registering with us
+            <script>
+                document.write(localStorage.getItem("fullname"));
+            </script>
+            </h1>
     </body>
     </html>
