@@ -80,7 +80,7 @@ var f7=0;
       var res = patt.test(str.value);
       if(res==false)
       {
-      document.getElementById("demo2").innerHTML = "Email should be in the given format and should have 3 or more letters before @ and atleast 2 letters after . symbol";
+      document.getElementById("demo2").innerHTML = "Incorrect format";
       showerror(str1);
       }else
       {
@@ -204,8 +204,9 @@ const adduser=(ev)=>{
     }
     users.push(user);
     console.warn('added',{users});
-
-    localStorage.setItem("fullname",document.getElementById('fullname').value);
+    var x=document.getElementById('fullname').value;
+    x=x.split(" ");
+    localStorage.setItem("fullname",x[0]);
 
     window.location.href = 'thankyou.html'
     document.getElementById("form").reset();
