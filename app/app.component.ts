@@ -8,5 +8,15 @@ import { User } from './user';
 })
 export class AppComponent {
   educations=['Btech','Mtech','MCA','MBA'];
-  userModel = new User('', 'rob@test.com','male', 55566655661, 'Btech', true);
+  cnfPasswordError= true;
+  userModel = new User('','','', '','',null, '', true);
+
+  validatePassword(value,value1){
+    if(value=== value1)
+    this.cnfPasswordError= true;
+    else
+    this.cnfPasswordError=false;
+    console.log(this.cnfPasswordError);
+
+  }
 }
