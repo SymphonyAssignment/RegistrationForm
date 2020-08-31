@@ -1,6 +1,8 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
+  <div class="row" >
+    <div class="col-md-6 offset-md-3" style="background-color: white;    margin-top: 20px;
+    margin-bottom: 20px;">
+    <br>
 <h1>
   Registration Form
 </h1>
@@ -18,6 +20,7 @@
       <small class="text-danger" *ngIf="name.errors.pattern">Name should have characters only and length should be between 2 and 30</small>      
     </div>
   </div>
+
   <div class="form-group">
     <label>Password<sup style="color:red;"><b>*</b></sup></label>
     <input type="password" (blur)="validatePassword(cnfpassword.value,password.value)" (change)="validatePassword(cnfpassword.value,password.value)" required #password="ngModel" [class.is-invalid]="password.invalid && password.touched" 
@@ -30,12 +33,12 @@
   </div>
 
    <div class="form-group">
-    <label>Confrim Password<sup style="color:red;"><b>*</b></sup></label>
+    <label>Confirm Password<sup style="color:red;"><b>*</b></sup></label>
     <input type="password" (blur)="validatePassword(cnfpassword.value,password.value)" (change)="validatePassword(cnfpassword.value,password.value)" required 
     #cnfpassword="ngModel" [class.is-invalid]="!cnfPasswordError && cnfpassword.touched" class="form-control" name="cnfpassword" [(ngModel)]="userModel.cnfpassword">
 
     <div *ngIf= "!cnfPasswordError && cnfpassword.touched">
-      <small class="text-danger">Password donot match.</small>           
+      <small class="text-danger">Passwords do not match.</small>           
     </div>
     </div>
 
@@ -47,6 +50,21 @@
     <div *ngIf="email.errors && email.invalid && email.touched">
       <small class="text-danger" *ngIf="email.errors.required">Email is required</small>      
       <small class="text-danger" *ngIf="email.errors.pattern">Email should be in the given format and should have 3 or more letters before @ and atleast 2 letters after . symbol</small>      
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Date Of Birth<sup style="color:red;"><b>*</b></sup></label>
+    <input type="date" required #dob="ngModel" (blur)="validatedob(dob.value)" 
+     [class.is-invalid]="!dobError" 
+     class="form-control"  name="dob" [(ngModel)]="userModel.dob">
+
+     <div *ngIf= "dob.errors && dob.touched">
+      <small class="text-danger">Date Of Birth is required</small>           
+    </div>
+
+    <div *ngIf= "!dobError && dob.touched">
+      <small class="text-danger">Age must be between 18 and 60</small>           
     </div>
   </div>
 
@@ -90,14 +108,18 @@
   <div class="form-check mb-3">
     <input class="form-check-input" required type="checkbox" name="terms" [(ngModel)]="userModel.terms">
     <label class="form-check-label">
-      Yes, I agree to the terms of use and privacy policy<sup style="color:red;"><b>*</b></sup>
+      Yes, I agree to the
+      <a href="https://www.symphonytalent.com/en/terms-of-use/"> <u style="color: blue;">terms of use</u></a>
+       and 
+       <a href="https://www.symphonytalent.com/en/privacy/"> <u style="color: blue;">Privacy Policy</u></a>
+      <sup style="color:red;"><b>*</b></sup>
     </label>
   </div>
  
  
 
 
-<button [disabled]="userform.form.invalid" class="btn btn-primary" type="submit">Register</button>
+<button [disabled]="userform.form.invalid" class="btn btn-primary" type="submit">Register</button><br><hr/>
 
 </form>
 </div>

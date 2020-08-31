@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from './user';
+import { ConstantPool } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,8 @@ import { User } from './user';
 export class AppComponent {
   educations=['Btech','Mtech','MCA','MBA'];
   cnfPasswordError= true;
-  userModel = new User('','','', '','',null, '', true);
+  dobError=true;
+  userModel = new User('Ehraz','','','xyz@gmail.com','11-02-2015','',8877000205,'', true);
 
   validatePassword(value,value1){
     if(value=== value1)
@@ -19,4 +21,25 @@ export class AppComponent {
     console.log(this.cnfPasswordError);
 
   }
+
+  validatedob(value)
+  {
+    console.log(value);
+    if(value!=null)
+    {
+    var s1 = value.split("-", 1);
+    var  s=s1[0];
+    var dobyear=parseInt(s);
+   // console.log(typeof(dobyear));
+    var curryear = new Date().getFullYear()
+    //console.log(typeof(curryear));
+    if((curryear-dobyear)>18 && (curryear-dobyear)<60)
+    this.dobError=true;
+    else
+    this.dobError=false;
+    console.log(this.dobError);
+    }
+  }
+
+
 }
